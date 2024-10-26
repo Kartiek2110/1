@@ -44,7 +44,7 @@ module.exports.signup = async (req, res, next) => {
         })
 
     } catch (e) {
-        next(e)
+        next(e, "error in signup")
     }
 }
 module.exports.signin = async (req, res, next) => {
@@ -79,7 +79,7 @@ module.exports.signin = async (req, res, next) => {
         })
 
     } catch (err) {
-        next(err)
+        next(err, "error in signin")
     }
 }
 module.exports.logout = async (req, res, next) => {
@@ -104,7 +104,7 @@ module.exports.logout = async (req, res, next) => {
         })
 
     } catch (e) {
-        next(e)
+        next(e, "error in logout")
     }
 }
 module.exports.getProfile = async (req, res, next) => {
@@ -121,7 +121,7 @@ module.exports.getProfile = async (req, res, next) => {
         }
         res.json(user)
     } catch (err) {
-        next(err)
+        next(err, "error in getProfile")
     }
 }
 module.exports.getProducts = async (req, res, next) => {
@@ -134,7 +134,7 @@ module.exports.getProducts = async (req, res, next) => {
         })
     }
     catch (err) {
-        next(err)
+        next(err, "error in getProducts")
     }
 }
 module.exports.getProductsbyId = async (req, res, next) => {
@@ -147,7 +147,7 @@ module.exports.getProductsbyId = async (req, res, next) => {
         }
         res.json(product)
     } catch (err) {
-        next(err)
+        next(err, "error in getProductsbyId")
     }
 }
 
@@ -179,7 +179,7 @@ module.exports.createOrder = async (req, res, next) => {
 
         res.status(201).json({ message: "Order created successfully", order });
     } catch (error) {
-        next(error);
+        next(error, "error in createOrder");
     }
 }
 module.exports.verifyPayment = async (req, res, next) => {
@@ -214,7 +214,7 @@ module.exports.verifyPayment = async (req, res, next) => {
 
     }
     catch (error) {
-        next(error);
+        next(error, "error in verifyPayment");
     }
 
 }
